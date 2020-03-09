@@ -1,0 +1,41 @@
+Taulut:
+
+Paikat
+- id (integer, primary key)
+- nimi (text, unique)
+
+Asiakkaat
+- id (integer, primary key)
+- nimi (text, unique)
+
+Paketit
+- id (integer, primary key)
+- seurantakoodi (text, unique)
+- asiakas_id (integer, foreign key: Asiakkaat.id)
+
+Tapahtumat
+- id (integer, primary key)
+- paketti_id (integer, foreign key: Paketit.id)
+- paikka_id (integer, foreign key: Paketit.id)
+- aika (date)
+- kuvaus (text)
+
+Harjoitustyön vaatimukset
+
+Tietokannan tulee olla suunniteltu luvun 5.1 periaatteiden mukaisesti, eli sen rakenne tulee olla järkevä eikä siinä saa olla toisteista tietoa.
+
+Sovellus toteutetaan Java- tai Python-kielellä komentoriviohjelmana. Sovelluksessa tulee olla valikko, jossa on seuraavat toiminnot:
+
+ 1   Luo sovelluksen tarvitsemat taulut tyhjään tietokantaan (tätä toimintoa voidaan käyttää, kun tietokantaa ei ole vielä olemassa).
+ 2   Lisää uusi paikka tietokantaan, kun annetaan paikan nimi.
+ 3   Lisää uusi asiakas tietokantaan, kun annetaan asiakkaan nimi.
+ 4   Lisää uusi paketti tietokantaan, kun annetaan paketin seurantakoodi ja asiakkaan nimi. Asiakkaan tulee olla valmiiksi tietokannassa.
+ 5   Lisää uusi tapahtuma tietokantaan, kun annetaan paketin seurantakoodi, tapahtuman paikka sekä kuvaus. Paketin ja paikan tulee olla valmiiksi tietokannassa.
+ 6   Hae kaikki paketin tapahtumat seurantakoodin perusteella.
+ 7   Hae kaikki asiakkaan paketit ja niihin liittyvien tapahtumien määrä.
+ 8   Hae annetusta paikasta tapahtumien määrä tiettynä päivänä.
+ 9   Suorita tietokannan tehokkuustesti (tästä lisää alempana).
+
+Jos toiminto epäonnistuu, niin sovelluksen tulee antaa järkevä virheilmoitus.
+
+Tietokantaan ei saa olla mahdollista ilmestyä kahta samannimistä paikkaa tai asiakasta eikä kahta pakettia samalla seurantakoodilla.

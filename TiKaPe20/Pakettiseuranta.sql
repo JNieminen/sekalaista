@@ -1,0 +1,23 @@
+CREATE TABLE `Paikat` (
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `nimi` TEXT UNIQUE
+);
+
+CREATE TABLE `Asiakkaat` (
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `nimi` TEXT UNIQUE
+);
+
+CREATE TABLE `Paketit` (
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `koodi` TEXT UNIQUE,
+  `asiakas_id` INTEGER NOT NULL
+);
+
+CREATE TABLE `Tapahtumat` (
+  `id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `paketti_id` INTEGER NOT NULL,
+  `paikka_id` INTEGER NOT NULL,
+  `aika` TEXT NOT NULL,
+  `kuvaus` TEXT
+);

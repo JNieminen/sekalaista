@@ -1,0 +1,23 @@
+Table Paikat {
+  id int [pk, increment]
+  nimi text [unique]
+}
+
+Table Asiakkaat {
+  id int [pk, increment]
+  nimi text [unique]
+}
+
+Table Paketit {
+  id int [pk, increment]
+  koodi text [unique]
+  asiakas_id int [not null, ref: > Asiakkaat.id]
+}
+
+Table Tapahtumat {
+  id int [pk, increment]
+  paketti_id int [not null, ref: > Paketit.id]
+  paikka_id int [not null, ref: > Paikat.id]
+  aika datetime [not null]
+  kuvaus text
+}
